@@ -15,7 +15,9 @@ namespace mantis_tests
         [Test]
         public void NewProjectCreationTest()
         {
-            List<ProjectData> oldProjects = app.Projects.GetProjectList();
+            //List<ProjectData> oldProjects = app.Projects.GetProjectList();
+
+            List<ProjectData> oldProjects = app.API.GetProjectsListByAPI(new AccountData("administrator", "root", String.Empty));
 
             ProjectData newProject = new ProjectData()
             {
@@ -35,7 +37,8 @@ namespace mantis_tests
 
             Thread.Sleep(1000);
 
-            List<ProjectData> newProjects = app.Projects.GetProjectList();
+            //List<ProjectData> newProjects = app.Projects.GetProjectList();
+            List<ProjectData> newProjects = app.API.GetProjectsListByAPI(new AccountData("administrator", "root", String.Empty));
 
             oldProjects.Add(newProject);
             Assert.AreEqual(oldProjects, newProjects);

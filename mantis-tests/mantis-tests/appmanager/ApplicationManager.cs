@@ -23,6 +23,7 @@ namespace mantis_tests
 
         protected ProjectHelper projectHelper;
 
+
         private static ThreadLocal<ApplicationManager> app = new ThreadLocal<ApplicationManager>();
 
         private ApplicationManager()
@@ -34,6 +35,7 @@ namespace mantis_tests
             FtpHelper = new FtpHelper(this);
             loginHelper = new LoginHelper(this);
             projectHelper = new ProjectHelper(this);
+            API = new APIHelper(this);
         }
 
         ~ApplicationManager()
@@ -79,6 +81,8 @@ namespace mantis_tests
                 return projectHelper;
             }
         }
+
+        public APIHelper API { get; set; }
 
     }
 }
