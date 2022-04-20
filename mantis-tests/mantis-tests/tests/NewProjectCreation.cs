@@ -26,7 +26,7 @@ namespace mantis_tests
             {
                 if (oldProjects[i].Name == newProject.Name)
                 {
-                    app.Projects.Delete(i);
+                    app.Projects.Delete(newProject.Name);
                     oldProjects.RemoveAt(i);
                 }
             }

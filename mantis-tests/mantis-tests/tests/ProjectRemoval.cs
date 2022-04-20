@@ -24,11 +24,14 @@ namespace mantis_tests
                 oldProjects = app.Projects.GetProjectList();
             }
 
-            app.Projects.Delete();
+            string Name = oldProjects[0].Name;
+            app.Projects.Delete(Name);
 
             Thread.Sleep(1000);
 
             List<ProjectData> newProjects = app.Projects.GetProjectList();
+            
+
             oldProjects.RemoveAt(0);
             oldProjects.Sort();
             newProjects.Sort();

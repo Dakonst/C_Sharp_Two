@@ -35,10 +35,10 @@ namespace mantis_tests
             return this;
         }
 
-        public ProjectHelper Delete(int i)
+        public ProjectHelper Delete(string Name)
         {
             OpenProjectManagerPage();
-            selectProjectById(i);
+            selectProjectByName(Name);
             InitProjectRemoval();
             SubmitProjectRemoval();
             return this;
@@ -73,6 +73,10 @@ namespace mantis_tests
         private void selectProjectById(int i)
         {
             driver.FindElement(By.XPath("//div[@id='main-container']/div[2]/div[2]/div/div/div[2]/div[2]/div/div[2]/table/tbody/tr[" + (i + 1) + "]/td/a")).Click();
+        }
+        private void selectProjectByName(string Name)
+        {
+            driver.FindElement(By.XPath("//div[@id='main-container']/div[2]/div[2]/div/div/div[2]/div[2]/div/div[2]/table/tbody/tr/td/a[contains(text(), '"+ Name +"')]")).Click();
         }
 
         private void InitProjectRemoval()
