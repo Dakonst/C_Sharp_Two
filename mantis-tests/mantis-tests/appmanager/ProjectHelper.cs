@@ -11,9 +11,10 @@ namespace mantis_tests
 {
     public class ProjectHelper : HelperBase
     {
-        public ProjectHelper(ApplicationManager manager) : base(manager) { }
-
-        
+        private string baseURLProj;
+        public ProjectHelper(ApplicationManager manager, string baseURLProj) : base(manager) {
+            this.baseURLProj = baseURLProj;
+        }
 
         public ProjectHelper Create(ProjectData project)
         {
@@ -46,7 +47,7 @@ namespace mantis_tests
 
         private void OpenProjectManagerPage()
         {
-            driver.Navigate().GoToUrl("http://localhost/mantisbt-2.25.3/manage_proj_page.php");
+            driver.Navigate().GoToUrl(baseURLProj);
         }
         private void InitProjectCreation()
         {
