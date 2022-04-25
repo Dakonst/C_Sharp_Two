@@ -36,6 +36,7 @@ namespace mantis_tests
             FtpHelper = new FtpHelper(this);
             loginHelper = new LoginHelper(this);
             projectHelper = new ProjectHelper(this, baseURLProj);
+            API = new APIHelper(this);
         }
 
         ~ApplicationManager()
@@ -81,6 +82,8 @@ namespace mantis_tests
                 return projectHelper;
             }
         }
+
+        public APIHelper API { get; set; }
 
     }
 }
